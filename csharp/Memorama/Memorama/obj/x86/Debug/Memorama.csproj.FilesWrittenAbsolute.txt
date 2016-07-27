@@ -1,0 +1,5 @@
+/home/mauricio/Development/Memorama/Memorama/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/home/mauricio/Development/Memorama/Memorama/bin/Debug/Memorama.exe.mdb
+/home/mauricio/Development/Memorama/Memorama/bin/Debug/Memorama.exe
+/home/mauricio/Development/Memorama/Memorama/obj/x86/Debug/Memorama.exe
+/home/mauricio/Development/Memorama/Memorama/obj/x86/Debug/Memorama.exe.mdb
