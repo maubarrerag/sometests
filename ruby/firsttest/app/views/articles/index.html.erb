@@ -3,6 +3,10 @@
 
 <h1 align="center">Listing Articles</h1>
 
+<div align="center">
+ <%= will_paginate %>
+</div>
+
 <% @articles.each do |article| %>
   <div class="row">
    <div class="col-xs-8 col-xs-offset-2">
