@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :require_user, except: [:index, :show]
+  before_action :same_user, only: [:edit, :update, :destroy]
 
   # GET /articles
   # GET /articles.json
@@ -25,6 +27,7 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
+    @article.user = current_user
     if @article.save
        flash[:success] = "Article was successfully created."
        redirect_to article_path(@article)
@@ -58,7 +61,13 @@ class ArticlesController < ApplicationController
     def set_article
       @article = Article.find(params[:id])
     end
-
+    
+    def same_user
+       if current_user != @article.user
+        flash[:danger] = "You can only modify an article created by you"
+        redirect_to articles_path
+       end
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
       params.require(:article).permit(:title, :description, :page)
