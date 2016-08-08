@@ -11,4 +11,13 @@ class CategoryTest < ActiveSupport::TestCase
   	assert @category.valid?
   end
 
+  test "category_uniqueness" do
+  	@category.save
+  	category2 = Category.new(name: @category.name)
+  	category2.save
+  	assert_not category2.valid?
+  end
+
+
+
 end
