@@ -1,5 +1,5 @@
 {
-  "name": "angluar-als-workshop",
+  "name": "angular-als-workshop",
   "version": "1.0.0",
   "description": "ALS Angular workshop",
   "main": "app.js",
@@ -17,7 +17,8 @@
     "cluster": "^0.7.7",
     "cors": "^2.8.0",
     "fs": "0.0.1-security",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "watchify": "3.7.0"
   }
 
 }

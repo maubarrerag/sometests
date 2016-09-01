@@ -1,0 +1,20 @@
+{
+  "name": "angular-als-workshop",
+  "description": "ALS Angular workshop",
+  "main": "app.js",
+  "authors": [
+    "Mauricio Barrera"
+  ],
+  "license": "ISC",
+  "keywords": [
+    "ALS"
+  ],
+  "homepage": "https://github.com/maubarrerag/sometests",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

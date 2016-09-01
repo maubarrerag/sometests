@@ -30,7 +30,6 @@ if (cluster.isMaster) {
 } else {
     //LOAD NODE MODULES
     var express = require('express'),
-        jwt = require('express-jwt'),
         bodyParser = require('body-parser'),
         cors = require('cors'),
         path = require('path'),
@@ -39,7 +38,7 @@ if (cluster.isMaster) {
     //SETUP APP
     var app = express();
     app.use(cors()); //ENABLE REQUEST TO OTHER DOMAINS
-    app.use("www", express.static(path.join(__dirname, '/client/app'))); //WE DECLARE HERE OUR PUBLIC FOLDER
+    app.use("/www", express.static(path.join(__dirname, '/client/'))); //WE DECLARE HERE OUR PUBLIC FOLDER
 
     //SETUP BODY PARSER
     app.use(bodyParser.json()); // support json encoded bodies
