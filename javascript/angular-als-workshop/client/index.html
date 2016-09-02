@@ -1,16 +1,28 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<title>ALS</title>
-<meta charset="UTF-8">
-<script type="text/javascript" src="bower_components/angular/angular.js"></script>
-<script type="text/javascript" src="app/bundle.js"></script>
+    <title>ALS Angular Workshop</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <link rel="stylesheet" href="css/style.css" >
+
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="app/bundle.js"></script>
 </head>
-<body>
-	<div ng-app="app" ng-controller="AppController">
-		First Name: <input type="text" ng-model="name"><br>
-		Age: <input type="text" ng-model="age"><br>
-		<br>
-		{{hello()}}
-	</div>
+
+<body ng-app="app">
+    <div ng-controller="AppController">
+        <header>
+            <nav>
+                <a ui-sref="home">Home</a>
+            </nav>
+        </header>
+        <section ui-view></section>
+        <footer>Copyright&copy; 2016 AstraZeneca</footer>
+    </div>
 </body>
+
 </html>
