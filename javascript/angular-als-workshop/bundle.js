@@ -1,0 +1,1 @@
+console.error("Error: Cannot find module 'C:\\Users\\kdrm061\\Documents\\development\\sometests\\javascript\\angular-als-workshop\\app.js' from 'C:\\Users\\kdrm061\\Documents\\development\\sometests\\javascript\\angular-als-workshop'");
