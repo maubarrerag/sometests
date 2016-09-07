@@ -1,0 +1,1 @@
+INSERT INTO product (pr_json) VALUES(?)

@@ -6,6 +6,7 @@
 angular.module('app',[
 	'ui.router',
 	require('./home').name,
+	require('./products').name,
 	require('./404').name
 ])
 .config(['$urlRouterProvider',function($urlRouterProvider){

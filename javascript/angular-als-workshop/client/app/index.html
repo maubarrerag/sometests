@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>ALS Angular Workshop</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    
+    <link rel="stylesheet" href="css/style.css" >
+
+    <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+    <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="app/bundle.js"></script>
+</head>
+
+<body ng-app="app">
+    <div ng-controller="AppController">
+        <header>
+            <nav>
+                <a ui-sref="home">Home</a> | 
+                <a ui-sref="products">Products</a> | 
+                <a ui-sref="products_insert">Insert Product</a>
+            </nav>
+        </header>
+        <section ui-view></section>
+        <footer>Copyright&copy; 2016 AstraZeneca</footer>
+    </div>
+</body>
+
+</html>

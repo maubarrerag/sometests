@@ -18,7 +18,9 @@
     "cors": "^2.8.0",
     "fs": "0.0.1-security",
     "path": "^0.12.7",
-    "watchify": "3.7.0"
+    "watchify": "3.7.0",
+    "bower": "1.7.9",
+    "mysql": "2.11.1"
   }
 
 }

@@ -37,11 +37,12 @@ if (cluster.isMaster) {
         mysql = require('mysql');
 
 
-    var connection = mysql.createConnection({
-        host: 'alstest.cewrkmemvonk.us-west-1.rds.amazonaws.com:3306',
+    var connection = mysql.createPool({
+        connectionLimit: 100,
+        host: 'angular.cewrkmemvonk.us-west-1.rds.amazonaws.com',
+        database: 'angular',
         user: 'root',
         password: 'T1jv2016$'
-        database: 'alstest'
     });
     
     //SETUP APP
@@ -65,7 +66,38 @@ if (cluster.isMaster) {
         res.send('HelloWorld');
     });
 
-    var server = app.listen(3000, function () {
+    app.post('/api/products', function (req, res, next) {
+        pool.getConnection(function (err, connection) {
+            // Use the connection 
+            connection.query(file('products'), function (err, rows) {
+                if (err) throw err;
+                //Send response
+                res.send(rows);
+                // And done with the connection.
+                connection.release();
+            });
+        });
+    });
+
+    app.post('/api/products/insert', function (req, res, next) {
+        pool.getConnection(function (err, connection) {
+            // Use the connection 
+            if(!!req.body.pr_json) {
+                connection.query(file('products.insert'), [JSON.stringify(req.body.pr_json)], function (err, result) {
+                    if (err) throw err;
+                    //Send response
+                    res.send(JSON.stringify(result.insertId));
+                    // And done with the connection.
+                    connection.release();
+                });
+            } else {
+                throw new Error('pr_json cannot be null');
+            }
+        });
+    });
+
+
+    var server = app.listen(8000, function () {
         var host = server.address().address;
         var port = server.address().port;
         console.log('Server running on worker %d listening at http://%s:%s', cluster.worker.id, host, port);

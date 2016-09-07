@@ -1,2 +1,10 @@
+<!-- app/home/home.html -->
 <h3>{{view.header}}</h3>
 <p>{{view.msg}}</p>
+
+<p>Whats your name?</p>
+<input type="text" placeholder="Your name here" ng-model="name">
+<p>Your Name is: {{name}}</p>
+
+<input type="text" placeholder="Your name here" ng-model="nameFromView">
+<button ng-click="updateName(nameFromView)">Update the name from the view</button>

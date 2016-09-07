@@ -1,0 +1,10 @@
+<!-- app/404/404.html -->
+<h3>{{view.header}}</h3>
+<p>{{view.msg}}</p>
+
+<form no-validate>
+<input type="text" ng-model="pr_json.pr_name">
+<input type="text" ng-model="pr_json.pr_price">
+<button ng-click="insert()">Insert</button>
+{{pr_json | json }}
+</form>
