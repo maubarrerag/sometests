@@ -33,8 +33,17 @@ if (cluster.isMaster) {
         bodyParser = require('body-parser'),
         cors = require('cors'),
         path = require('path'),
-        fs = require('fs');
+        fs = require('fs'),
+        mysql = require('mysql');
 
+
+    var connection = mysql.createConnection({
+        host: 'alstest.cewrkmemvonk.us-west-1.rds.amazonaws.com:3306',
+        user: 'root',
+        password: 'T1jv2016$'
+        database: 'alstest'
+    });
+    
     //SETUP APP
     var app = express();
     app.use(cors()); //ENABLE REQUEST TO OTHER DOMAINS
