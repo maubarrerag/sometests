@@ -14,7 +14,6 @@ RUN bundle install
 
 COPY . .
 
-
 RUN bundle exec rake RAILS_ENV=staging
 
 VOLUME ["$INSTALL_PATH/public"]
