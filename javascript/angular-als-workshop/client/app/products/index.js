@@ -2,7 +2,7 @@ module.exports = (function (angular) {
     'use strict';
 
     return angular.module('app.products', [
-        require('./productsInsert').name
+        require('./products.insert').name
     ])
         .config(['$stateProvider', function ($stateProvider) {
             //set up the states

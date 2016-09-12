@@ -1,22 +1,21 @@
-module.exports = (function () {
+module.exports = (function (angular) {
     'use strict';
-
-    return ['$http', '$q', function Products($http, $q) {
-        var factory = {};
-        factory.getProducts = function () {
-            var deferred = $q.defer();
-            deferred.resolve(
-                $http.post('/api/products/', {
-                    /* POST variables here */
-                    no_chache: new Date().getMilliseconds(),
-                }).success(function (data, status, headers, config) {
-                    return data;
-                }).error(function (data, status, headers, config) {
-                    return { "status": false };
-                })
-            );
-            return deferred.promise;
+    // lo que sea
+    return ['$scope', 'productsFactory', function ProductsController($scope, productsFactory) {
+        $scope.view = {
+            "header": "Products",
+            "msg": "Asynchronous Product List"
         };
-        return factory;
-    }]
+
+        $scope.$on('$viewContentLoaded', function () {
+            // this code is executed after the view is loaded
+            productsFactory.getProducts().then(function (promise) {
+                if (angular.isArray(promise.data)) {
+                    $scope.products = promise.data;
+                }
+            })
+        });
+
+    }];
+
 })(angular);
