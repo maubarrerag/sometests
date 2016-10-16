@@ -11,7 +11,7 @@ WORKDIR $INSTALL_PATH
 
 ONBUILD COPY Gemfile $INSTALL_PATH
 ONBUILD COPY Gemfile.lock $INSTALL_PATH
-ONBUILD RUN bundle install
+ONBUILD RUN bundle install --without development test
 
 COPY . $INSTALL_PATH
 
